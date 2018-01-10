@@ -84,5 +84,5 @@ public class Search {
             return binarySearchRecursive(sortedArr, value, left, mid - 1);
         }
     }
-    
+
 }
