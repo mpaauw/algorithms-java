@@ -4,8 +4,8 @@ package util;
  * Container implementation used for returning value-index pairs.
  */
 public class ItemIndex {
-    int value;
-    int index;
+    public int value;
+    public int index;
 
     public ItemIndex() {}
 
