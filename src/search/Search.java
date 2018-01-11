@@ -22,6 +22,7 @@ public class Search {
 
     /**
      * Recursive Linear Search algorithm implementation.
+     * Stack overflow can occur at heavy load (100000+ stack calls).
      * @param arr array of elements to be searched.
      * @param value value to search for within the array.
      * @param i variable to track array iteration.
