@@ -7,6 +7,7 @@ public class Search {
 
     /**
      * Linear Search algorithm implementation.
+     * Efficiency: O(n)
      * @param arr array of elements to be searched.
      * @param value value to search for within the array.
      * @return the index of the value if it is found within the array, -1 if not found
@@ -23,6 +24,7 @@ public class Search {
     /**
      * Recursive Linear Search algorithm implementation.
      * Stack overflow can occur at heavy load (100000+ stack calls).
+     * Efficiency: O(n)
      * @param arr array of elements to be searched.
      * @param value value to search for within the array.
      * @param i variable to track array iteration.
@@ -40,6 +42,8 @@ public class Search {
 
     /**
      * Binary Search algorithm implementation.
+     * Array must be sorted prior to search.
+     * Efficiency: O(log n)
      * @param sortedArr array of elements to be searched. Must be sorted in order for algorithm to function properly.
      * @param value value to search for within the array.
      * @return the index of the value if it is found within the array, -1 if not found.
@@ -64,6 +68,8 @@ public class Search {
 
     /**
      * Recursive Binary Search algorithm implementation.
+     * Array must be sorted prior to search.
+     * Efficiency: O(log n)
      * @param sortedArr array of elements to be searched. Must be sorted in order for algorithm to function properly.
      * @param value value to search for within the array.
      * @param left value to track left bound of array search values.
