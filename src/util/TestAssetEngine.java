@@ -9,17 +9,22 @@ import java.util.Random;
 public class TestAssetEngine {
 
     private Random rand = new Random();
-    private final int UPPER_BOUND_VALUE = Integer.MAX_VALUE;
-    private final int UPPER_BOUND_SIZE = 1000000;
+    public int upperBoundValue = Integer.MAX_VALUE;
+    public int upperBoundSize = 100000;
 
     public TestAssetEngine() {}
+
+    public TestAssetEngine(TestAssetEngineBuilder builder) {
+        this.upperBoundValue = builder.upperBoundValue;
+        this.upperBoundSize = builder.upperBoundSize;
+    }
 
     /**
      * Generates a random signed integer.
      * @return the randomly generated integer.
      */
     public int generateRandomInteger() {
-        return generateSign() ? this.rand.nextInt(UPPER_BOUND_VALUE) : -1 * this.rand.nextInt(UPPER_BOUND_VALUE);
+        return generateSign() ? this.rand.nextInt(upperBoundValue) : -1 * this.rand.nextInt(upperBoundValue);
     }
 
     /**
@@ -36,7 +41,7 @@ public class TestAssetEngine {
      * @return the generated array.
      */
     public int[] generateUnorderedIntegerArray() {
-        int arraySize = this.rand.nextInt(UPPER_BOUND_SIZE);
+        int arraySize = this.rand.nextInt(this.upperBoundSize);
         int[] unorderedArr = new int[arraySize];
         for(int i = 0; i < unorderedArr.length; i++) {
             unorderedArr[i] = generateRandomInteger();
@@ -49,7 +54,7 @@ public class TestAssetEngine {
      * @return the generated array.
      */
     public int[] generateOrderedIntegerArray() {
-        int arraySize = this.rand.nextInt(UPPER_BOUND_SIZE);
+        int arraySize = this.rand.nextInt(this.upperBoundSize);
         int[] orderedArr = new int[arraySize];
         for(int i = 0; i < orderedArr.length; i++) {
             orderedArr[i] = generateRandomInteger();
@@ -74,9 +79,9 @@ public class TestAssetEngine {
      * @return the randomly generated integer.
      */
     public int generateRandomIntegerNotInArray(int[] arr) {
-        int value = generateRandomIntegerWithBound(UPPER_BOUND_VALUE);
+        int value = generateRandomIntegerWithBound(upperBoundValue);
         while(Arrays.asList(arr).contains(value)) {
-            value = generateRandomIntegerWithBound(UPPER_BOUND_VALUE);
+            value = generateRandomIntegerWithBound(upperBoundValue);
         }
         return value;
     }
@@ -88,4 +93,25 @@ public class TestAssetEngine {
     public boolean generateSign() {
         return this.rand.nextInt(2) == 0 ? true : false;
     }
+
+    /**
+     * Builder class used to quickly instantiate parameter boundaries for test assets.
+     */
+    public static class TestAssetEngineBuilder {
+
+        public int upperBoundValue = Integer.MAX_VALUE;
+        public int upperBoundSize = 100000;
+
+        public TestAssetEngineBuilder upperBoundValue(int upperBoundValue){
+            this.upperBoundValue = upperBoundValue;
+            return this;
+        }
+
+        public TestAssetEngineBuilder upperBoundSize(int upperBoundSize) {
+            this.upperBoundSize = upperBoundSize;
+            return this;
+        }
+
+    }
+
 }
