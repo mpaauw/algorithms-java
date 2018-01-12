@@ -23,10 +23,21 @@ public class SortTest {
     @Test
     public void selectionSortFullTest() {
         int[] arr = this.engine.generateUnorderedIntegerArray();
-        int[] expected = arr;
+        int[] expected = new int[arr.length];
+        System.arraycopy(arr, 0, expected, 0, arr.length);
         Arrays.sort(expected);
         int[] actual = this.sort.selectionSort(arr);
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void insertionSortFullTest() {
+        int[] arr = this.engine.generateUnorderedIntegerArray();
+        int[] expected = new int[arr.length];
+        System.arraycopy(arr, 0, expected, 0, arr.length);
+        Arrays.sort(expected);
+        int[] actual = this.sort.insertionSort(arr);
+        Assert.assertArrayEquals(expected, actual);
     }
 
 }
