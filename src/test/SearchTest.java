@@ -7,7 +7,7 @@ import util.ItemIndex;
 import util.TestAssetEngine;
 
 /**
- * Contains unit tests for methods contains within the Search class.
+ * Contains unit tests for methods contained within the Search class.
  */
 public class SearchTest {
 
