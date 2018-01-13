@@ -8,8 +8,8 @@ public class MergeSort {
      * Recursive Merge Sort algorithm implementation.
      * Efficiency: O(n log n), not in-place.
      * @param arr array of elements to be sorted.
-     * @param left the left partition of arr.
-     * @param right the right partition of arr.
+     * @param left left bound index.
+     * @param right right bound index.
      */
     public void mergeSortRecursive(int[] arr, int left, int right) {
         if(right <= left) {
@@ -24,8 +24,8 @@ public class MergeSort {
     /**
      * Helper method used within the Merge Sort algorithm.
      * @param arr the array to be merged into.
-     * @param left left partition index.
-     * @param right right partition index.
+     * @param left left bound index.
+     * @param right right bound index.
      * @param mid midpoint between left and right index partitions.
      */
     public void merge(int[] arr, int left, int right, int mid) {
