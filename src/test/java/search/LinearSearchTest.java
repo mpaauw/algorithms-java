@@ -56,6 +56,7 @@ public class LinearSearchTest {
     }
 
     @Test
+    @Ignore
     public void linearSearchRecursiveValuePresentTest() {
         int[] arr = this.engine.generateUnorderedIntegerArray();
         ItemIndex itemIndex = this.engine.chooseRandomIntegerIndexFromArray(arr);
