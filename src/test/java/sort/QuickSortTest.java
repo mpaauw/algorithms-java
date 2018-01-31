@@ -1,34 +1,34 @@
-package test.sort;
+package sort;
 
 import org.junit.Assert;
 import org.junit.Test;
-import sort.InsertionSort;
-import sort.MergeSort;
+import sort.QuickSort;
 import util.TestAssetEngine;
 
 import java.util.Arrays;
 
 /**
- * Contains unit tests for methods contained within the MergeSort class.
+ * Contains unit tests for methods contained within the QuickSort class.
  */
-public class MergeSortTest {
+public class QuickSortTest {
 
-    private MergeSort sort;
+    private QuickSort sort;
     private TestAssetEngine engine;
 
-    public MergeSortTest() {
-        this.sort = new MergeSort();
+    public QuickSortTest() {
+        this.sort = new QuickSort();
         this.engine = new TestAssetEngine(new TestAssetEngine.TestAssetEngineBuilder().upperBoundSize(1500));
     }
 
     @Test
-    public void mergeSortRecursiveFullTest() {
+    public void quickSortFullTest() {
         int[] arr = this.engine.generateUnorderedIntegerArray();
         int[] expected = new int[arr.length];
         System.arraycopy(arr, 0, expected, 0, arr.length);
         Arrays.sort(expected);
-        this.sort.mergeSortRecursive(arr, 0, arr.length - 1);
+        this.sort.quickSortRecursive(arr, 0, arr.length - 1);
         int[] actual = arr;
         Assert.assertArrayEquals(expected, actual);
     }
+
 }

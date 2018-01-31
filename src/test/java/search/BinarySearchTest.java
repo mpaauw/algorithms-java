@@ -1,8 +1,7 @@
-package test.search;
+package search;
 
 import org.junit.Assert;
 import org.junit.Test;
-import search.BinarySearch;
 import util.ItemIndex;
 import util.TestAssetEngine;
 
