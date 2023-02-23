@@ -22,8 +22,8 @@ public class BinarySearchTest {
     public void binarySearchValuePresentTest() {
         int[] arr = this.engine.generateOrderedIntegerArray();
         ItemIndex itemIndex = this.engine.chooseRandomIntegerIndexFromArray(arr);
-        int expected = itemIndex.index;
-        int actual = this.search.binarySearch(arr, itemIndex.value);
+        Integer expected = itemIndex.index;
+        Integer actual = this.search.binarySearch(arr, itemIndex.value);
         Assert.assertEquals(expected, actual);
     }
 
@@ -31,8 +31,8 @@ public class BinarySearchTest {
     public void binarySearchValueNotPresentTest() {
         int[] arr = this.engine.generateOrderedIntegerArray();
         int value = this.engine.generateRandomIntegerNotInArray(arr);
-        int expected = -1;
-        int actual = this.search.binarySearch(arr, value);
+        Integer expected = -1;
+        Integer actual = this.search.binarySearch(arr, value);
         Assert.assertEquals(expected, actual);
     }
 
@@ -40,8 +40,8 @@ public class BinarySearchTest {
     public void binarySearchSingleValueArrayTest() {
         int[] arr = {5};
         int value = 5;
-        int expected = 0;
-        int actual = this.search.binarySearch(arr, value);
+        Integer expected = 0;
+        Integer actual = this.search.binarySearch(arr, value);
         Assert.assertEquals(expected, actual);
     }
 
@@ -49,8 +49,8 @@ public class BinarySearchTest {
     public void binarySearchEmptyArrayTest() {
         int[] arr = {};
         int value = this.engine.generateRandomIntegerNotInArray(arr);
-        int expected = -1;
-        int actual = this.search.binarySearch(arr, value);
+        Integer expected = -1;
+        Integer actual = this.search.binarySearch(arr, value);
         Assert.assertEquals(expected, actual);
     }
 
@@ -58,8 +58,8 @@ public class BinarySearchTest {
     public void binarySearchRecursiveValuePresentTest() {
         int[] arr = this.engine.generateOrderedIntegerArray();
         ItemIndex itemIndex = this.engine.chooseRandomIntegerIndexFromArray(arr);
-        int expected = itemIndex.index;
-        int actual = this.search.binarySearchRecursive(arr, itemIndex.value, 0, arr.length - 1);
+        Integer expected = itemIndex.index;
+        Integer actual = this.search.binarySearchRecursive(arr, itemIndex.value);
         Assert.assertEquals(expected, actual);
     }
 
@@ -67,8 +67,8 @@ public class BinarySearchTest {
     public void binarySearchRecursiveValueNotPresentTest() {
         int[] arr = this.engine.generateOrderedIntegerArray();
         int value = this.engine.generateRandomIntegerNotInArray(arr);
-        int expected = -1;
-        int actual = this.search.binarySearchRecursive(arr, value, 0, arr.length - 1);
+        Integer expected = null;
+        Integer actual = this.search.binarySearchRecursive(arr, value);
         Assert.assertEquals(expected, actual);
     }
 
@@ -76,8 +76,8 @@ public class BinarySearchTest {
     public void binarySearchRecursiveSingleValueArrayTest() {
         int[] arr = {5};
         int value = 5;
-        int expected = 0;
-        int actual = this.search.binarySearchRecursive(arr, value, 0, arr.length - 1);
+        Integer expected = 0;
+        Integer actual = this.search.binarySearchRecursive(arr, value);
         Assert.assertEquals(expected, actual);
     }
 
@@ -85,8 +85,8 @@ public class BinarySearchTest {
     public void binarySearchRecursiveEmptyArrayTest() {
         int[] arr = {};
         int value = this.engine.generateRandomIntegerNotInArray(arr);
-        int expected = -1;
-        int actual = this.search.binarySearchRecursive(arr, value, 0, arr.length - 1);
+        Integer expected = null;
+        Integer actual = this.search.binarySearchRecursive(arr, value);
         Assert.assertEquals(expected, actual);
     }
 }
