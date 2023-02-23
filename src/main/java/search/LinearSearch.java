@@ -7,35 +7,48 @@ public class LinearSearch {
     /**
      * Linear Search algorithm implementation.
      * Efficiency: O(n)
-     * @param arr array of elements to be searched.
-     * @param value value to search for within the array.
-     * @return the index of the value if it is found within the array, -1 if not found
+     * @param input array of elements to be searched; does not need to be sorted.
+     * @param searchValue value to search for within the array.
+     * @return the index of the value if it is found within the array, null if not found
      */
-    public int linearSearch(int[] arr, int value) {
-        for(int i = 0; i < arr.length; i++) {
-            if(arr[i] == value) {
+    public Integer linearSearch(int[] input, int searchValue) {
+        for(int i = 0; i < input.length; i++) {
+            if(input[i] == searchValue) {
                 return i;
             }
         }
-        return -1;
+        return null;
     }
 
     /**
      * Recursive Linear Search algorithm implementation.
-     * Stack overflow can occur at heavy load (100000+ stack calls).
      * Efficiency: O(n)
-     * @param arr array of elements to be searched.
-     * @param value value to search for within the array.
-     * @param i variable to track array iteration.
-     * @return the index of the value if it is found within the array, -1 if not found.
+     * @param input array of elements to be searched; does not need to be sorted
+     * @param searchValue value to search for within the array.
+     * @return the index of the value if it is found within the array, null if not found.
      */
-    public int linearSearchRecursive(int[] arr, int value, int i) {
-        if(i > arr.length - 1) {
-            return -1;
+    public Integer linearSearchRecursive(int[] input, int searchValue) {
+        return this.linearSearchRecursive(
+                input,
+                searchValue,
+                0
+        );
+    }
+    private Integer linearSearchRecursive(
+            int[] input,
+            int searchValue,
+            int index) {
+        if(index >= input.length) {
+            return null;
         }
-        if(arr[i] == value) {
-            return i;
+        if(input[index] == searchValue) {
+            return input[index];
+        } else {
+            return linearSearchRecursive(
+                    input,
+                    searchValue,
+                    index + 1
+            );
         }
-        return linearSearchRecursive(arr, value, i + 1);
     }
 }
