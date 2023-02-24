@@ -6,6 +6,7 @@ import sort.SelectionSort;
 import util.TestAssetEngine;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Contains unit tests for methods contained within the SelectionSort class.
@@ -22,11 +23,11 @@ public class SelectionSortTest {
 
     @Test
     public void selectionSortFullTest() {
-        int[] arr = this.engine.generateUnorderedIntegerArray();
+        int[] arr = new int[]{1, 5, 78, 2, 8, 23, 0, -1};
         int[] expected = new int[arr.length];
         System.arraycopy(arr, 0, expected, 0, arr.length);
         Arrays.sort(expected);
-        int[] actual = this.sort.selectionSort(arr);
+        int[] actual = this.sort.selectionSort(arr, true);
         Assert.assertArrayEquals(expected, actual);
     }
 }
